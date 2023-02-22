@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {CounterDisplay} from "./components/Counter-Display";
+import {CounterButtons} from "./components/Counter-Buttons";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [value, setValue] = useState<number>(0)
+    const maxValue = 5;
+
+    const incValue = () => {
+        setValue(value+1)
+    }
+    const resetValue = () => {
+        setValue(0)
+    }
+
+    return (
+        <div className="App">
+            <CounterDisplay value={value} />
+            <CounterButtons maxValue={maxValue} value={value} incValue={incValue} resetValue={resetValue}/>
+        </div>
+    );
 }
 
+
 export default App;
+
