@@ -1,10 +1,11 @@
-import React from "react";
+import React, {MouseEventHandler} from "react";
 
 type CounterButtonsPropsType = {
-    value: number
-    maxValue: number
-    incValue: () => void
-    resetValue: () => void
+    count: number
+    maxCount: number
+    onClick: MouseEventHandler<HTMLButtonElement>
+    title: string
+    disabled: boolean
 }
 
 
@@ -13,8 +14,8 @@ export const CounterButtons = (props: CounterButtonsPropsType) => {
 
     return (
         <div>
-            <button disabled={props.value === props.maxValue} onClick={props.incValue}>inc</button>
-            <button disabled={props.value === 0} onClick={props.resetValue}>reset</button>
+            <button disabled={props.disabled} onClick={props.onClick}>{props.title}</button>
+            {/*<button disabled={props.count === 0} onClick={props.onClick}>{props.title}</button>*/}
         </div>
     )
 }

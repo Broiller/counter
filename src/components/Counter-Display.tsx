@@ -1,14 +1,14 @@
 import React from "react";
 
 type CounterDisplayPropsType = {
-    value: number
+    count: number
 }
 
 export const CounterDisplay = (props: CounterDisplayPropsType) => {
 
     return (
-        <div className={props.value === 5 ? "error" : ""}>
-            {props.value}
+        <div className={props.count === 5 ? "error" : ""}>
+            {props.count}
         </div>
     )
 }
